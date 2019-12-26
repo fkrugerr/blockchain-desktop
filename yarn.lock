@@ -8450,6 +8450,11 @@ vue-cli-plugin-bootstrap-vue@^0.5.0:
   resolved "https://registry.yarnpkg.com/vue-cli-plugin-bootstrap-vue/-/vue-cli-plugin-bootstrap-vue-0.5.0.tgz#150b0eb9ddbeba21ccedc26edad8d14b93789e2d"
   integrity sha512-J3tx6iddLo45vCr/ItiV6XqtWsEWQyYGCXIQoMb4UCnCCh8/XXtDofDrpieQ8zkAIl4b6gMGLx3E1HlZER+Djw==
 
+vue-draggable-resizable@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/vue-draggable-resizable/-/vue-draggable-resizable-2.1.0.tgz#b590212aef3c07d040aeceda784438068170fb08"
+  integrity sha512-DQe5JjiqPjndc3XZkkZAMVygMlJ4TLcpMWM78IkizHeJBfX5Ki6OKZPxrT+HE7w/12d+OfWom5Y5phYcrwCzqg==
+
 vue-eslint-parser@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-5.0.0.tgz#00f4e4da94ec974b821a26ff0ed0f7a78402b8a1"
