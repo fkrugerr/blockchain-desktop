@@ -11,6 +11,9 @@
       :title="item.title"
       :id="item.id"
     />
+    <div class="position-absolute removed-holder" v-if="removedBlocks.length">
+      <removed-holder :blocks="removedBlocks" :onRestore="onRestore" />
+    </div>
   </div>
 </template>
 
@@ -18,10 +21,12 @@
 import { mapActions, mapGetters } from 'vuex';
 import 'vue-draggable-resizable/dist/VueDraggableResizable.css';
 import desktopBlock from '../components/DesktopBlock.vue';
+import removedHolder from '../components/RemovedBlocks.vue';
 
 export default {
   components: {
     desktopBlock,
+    removedHolder,
   },
   computed: {
     ...mapGetters({
@@ -32,7 +37,11 @@ export default {
   methods: {
     ...mapActions({
       init: 'desktop/init',
+      restore: 'desktop/restore',
     }),
+    onRestore(id) {
+      this.restore({ id, parentWidth: this.$refs.wrapper.clientWidth });
+    },
   },
   mounted() {
     this.init({ count: 5, width: this.$refs.wrapper.clientWidth });
@@ -44,5 +53,10 @@ export default {
 .desktop {
   height: calc(100vh - 115px);
   min-height: 450px;
+}
+.removed-holder {
+  top: 0;
+  right: 0;
+  z-index: 99;
 }
 </style>

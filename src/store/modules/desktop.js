@@ -1,6 +1,6 @@
 import {
   isEmpty, complement, prop, filter, map,
-  find, without, append, propEq,
+  find, without, append, propEq, dissoc,
 } from 'rambda';
 
 import { get as getItem, set as storeBlocks } from '../localStorage';
@@ -64,6 +64,8 @@ export default {
             ...item,
             w: 300,
             h: 150,
+            x: 0,
+            y: 30,
             removed: true,
           } : item
         ),
@@ -71,6 +73,23 @@ export default {
       );
       storeBlocks({ blocks: updated });
       commit('setBlocks', updated);
+    },
+    restore: ({ commit, getters, dispatch }, params) => {
+      const { id, parentWidth } = params;
+      const updated = map(
+        item => (
+          item.id === id ? dissoc(
+            'removed',
+            {
+              ...item,
+              x: parentWidth / 2 - 150,
+            },
+          ) : item
+        ),
+        getters.blocks,
+      );
+      commit('setBlocks', updated);
+      dispatch('popToTop', id);
     },
   },
 };
