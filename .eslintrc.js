@@ -19,6 +19,23 @@ module.exports = {
       ignorePattern: 'class=',
       ignoreTemplateLiterals: false,
     }],
+    'object-curly-newline': [
+      'error',
+      {
+        ObjectExpression: 'always',
+        ObjectPattern: {
+          multiline: true,
+        },
+        ImportDeclaration: {
+          multiline: true,
+          minProperties: 3,
+        },
+        ExportDeclaration: {
+          multiline: true,
+          minProperties: 3,
+        },
+      },
+    ]
   },
   parserOptions: {
     parser: 'babel-eslint',

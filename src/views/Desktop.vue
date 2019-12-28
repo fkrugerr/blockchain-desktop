@@ -40,11 +40,17 @@ export default {
       restore: 'desktop/restore',
     }),
     onRestore(id) {
-      this.restore({ id, parentWidth: this.$refs.wrapper.clientWidth });
+      this.restore({
+        id,
+        parentWidth: this.$refs.wrapper.clientWidth,
+      });
     },
   },
   mounted() {
-    this.init({ count: 5, width: this.$refs.wrapper.clientWidth });
+    this.init({
+      count: 5,
+      width: this.$refs.wrapper.clientWidth,
+    });
   },
 };
 </script>
